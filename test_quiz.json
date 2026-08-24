@@ -1,0 +1,40 @@
+{
+  "questions": [
+    {
+      "question": "What is Ohm's Law?",
+      "options": [
+        "V = IR",
+        "P = IV",
+        "R = V/I",
+        "I = V/R"
+      ],
+      "answer": 0,
+      "explanation": "Ohm's Law states that voltage equals current times resistance (V = IR).",
+      "topic": "Ohm's Law"
+    },
+    {
+      "question": "In a series circuit, how does current behave?",
+      "options": [
+        "It increases at each component",
+        "It remains constant throughout",
+        "It decreases at each component",
+        "It varies randomly"
+      ],
+      "answer": 1,
+      "explanation": "In a series circuit, current is the same everywhere in the circuit.",
+      "topic": "Circuit Basics"
+    },
+    {
+      "question": "What is the SI unit of resistance?",
+      "options": [
+        "Ampere",
+        "Volt",
+        "Ohm",
+        "Watt"
+      ],
+      "answer": 2,
+      "explanation": "The SI unit of electrical resistance is the Ohm (Ω).",
+      "topic": "Units & Measurement"
+    }
+  ]
+}

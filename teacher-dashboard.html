@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teacher Dashboard</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html"><h1>LearnSpace</h1></a>
+            <button id="signout-btn">Sign Out</button>
+        </header>
+        <main class="workspace">
+            <section class="workspace-intro">
+                <p class="eyebrow">Teacher Dashboard</p>
+                <h1>Classroom AI</h1>
+                <p>Upload your lesson and textbook, generate diagnostic quizzes, and create differentiated lessons.</p>
+            </section>
+
+            <div class="workspace-grid">
+                <aside class="sidebar">
+                    <section class="panel upload-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">Step 01</p>
+                                <h2>Textbook</h2>
+                            </div>
+                            <span id="textbook-status" class="status">Not uploaded</span>
+                        </div>
+                        <label class="upload-dropzone" for="textbook-upload">
+                            <span class="upload-icon">+</span>
+                            <strong>Upload textbook PDF</strong>
+                            <span>PDF, PNG, JPG, or WEBP under 10 MB.</span>
+                            <input id="textbook-upload" type="file" accept="application/pdf,image/png,image/jpeg,image/webp">
+                        </label>
+                        <p id="textbook-name" class="helper-text">Your textbook will appear here after selection.</p>
+                    </section>
+
+                    <section class="panel upload-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">Step 02</p>
+                                <h2>Today's Lesson</h2>
+                            </div>
+                            <span id="lesson-status" class="status">Not uploaded</span>
+                        </div>
+                        <label class="upload-dropzone" for="lesson-upload">
+                            <span class="upload-icon">+</span>
+                            <strong>Upload lesson image/PDF</strong>
+                            <span>Photo of your lesson plan or PDF.</span>
+                            <input id="lesson-upload" type="file" accept="application/pdf,image/png,image/jpeg,image/webp">
+                        </label>
+                        <p id="lesson-name" class="helper-text">Your lesson will appear here after selection.</p>
+                    </section>
+
+                    <section class="panel">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">Step 03</p>
+                                <h2>Generate Quiz</h2>
+                            </div>
+                        </div>
+                        <form id="quiz-gen-form">
+                            <label for="quiz-level">Target level</label>
+                            <select id="quiz-level" name="level">
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate" selected>Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                            <label for="quiz-count">Number of questions</label>
+                            <input id="quiz-count" type="number" name="count" min="3" max="15" value="8">
+                            <button type="submit" class="secondary-btn">Generate Diagnostic Quiz</button>
+                            <p id="quiz-gen-status" class="helper-text" role="status"></p>
+                        </form>
+                    </section>
+
+                    <section class="panel">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">Step 04</p>
+                                <h2>Share Quiz</h2>
+                            </div>
+                        </div>
+                        <div id="share-section" hidden>
+                            <p class="helper-text">Quiz generated. Share this link with students:</p>
+                            <div style="display: flex; gap: 8px; margin-top: 8px;">
+                                <input id="share-url" type="text" readonly style="flex: 1; padding: 8px; border: 1px solid var(--border-color); border-radius: 8px;">
+                                <button id="copy-btn" class="secondary-btn">Copy</button>
+                            </div>
+                            <p id="share-status" class="helper-text"></p>
+                        </div>
+                    </section>
+                </aside>
+
+                <section class="panel question-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">Step 05</p>
+                            <h2>Class Analytics</h2>
+                        </div>
+                    </div>
+                    <div id="analytics-content">
+                        <p class="helper-text">Analytics will appear here after students complete the quiz.</p>
+                    </div>
+                    <div style="margin-top: 16px;">
+                        <button id="refresh-analytics" class="secondary-btn">Refresh Analytics</button>
+                    </div>
+                </section>
+            </div>
+
+            <section class="panel" style="margin-top: 24px;">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">Step 06</p>
+                        <h2>Differentiated Lessons</h2>
+                    </div>
+                </div>
+                <form id="diff-lesson-form">
+                    <label for="diff-lesson-text">Original lesson text (or leave blank to use uploaded lesson)</label>
+                    <textarea id="diff-lesson-text" name="lessonText" rows="6" maxlength="10000" placeholder="Paste your lesson text here..."></textarea>
+                    <button type="submit">Generate 3 Versions</button>
+                    <p id="diff-lesson-status" class="helper-text" role="status"></p>
+                </form>
+                <div id="diff-lesson-results" hidden>
+                    <div class="workspace-grid" style="margin-top: 16px;">
+                        <div id="support-version" class="panel"></div>
+                        <div id="core-version" class="panel"></div>
+                        <div id="stretch-version" class="panel"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script type="module" src="js/teacher-dashboard.js"></script>
+    </body>
+</html>

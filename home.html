@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Classroom AI | Teacher workspace</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <header>
+            <a class="brand" href="index.html"><span class="brand-mark">C</span><span>Classroom AI</span></a>
+            <div class="header-actions"><span class="teacher-chip">Teacher workspace</span><button id="signout-btn" class="ghost-btn">Sign out</button></div>
+        </header>
+        <main class="workspace">
+            <section class="workspace-intro">
+                <div><p class="eyebrow">Teacher dashboard / August 23, 2026</p><h1>Plan once.<br><em>Teach every learner.</em></h1><p>Turn your curriculum and lesson notes into grounded, differentiated learning experiences for the classroom.</p></div>
+                <div class="intro-stat"><strong>3</strong><span>adaptive<br>levels</span></div>
+            </section>
+            <nav class="workspace-nav" aria-label="Workspace navigation"><a class="active" href="#overview">Overview</a><a href="#lesson">Lesson builder</a><a href="#assessment">Assessments</a><a href="#progress">Student progress</a></nav>
+            <div class="workspace-grid" id="overview">
+                <aside class="sidebar">
+                    <section class="panel upload-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">Curriculum source</p>
+                                <h2>Knowledge base</h2>
+                            </div>
+                            <span id="upload-status" class="status">Not uploaded</span>
+                        </div>
+                        <label class="upload-dropzone" for="document-upload">
+                            <span class="upload-icon">+</span>
+                            <strong>Add a textbook or course file</strong>
+                            <span>PDF, PNG, JPG, or WEBP · up to 10 MB</span>
+                            <input id="document-upload" type="file" accept="application/pdf,image/png,image/jpeg,image/webp">
+                        </label>
+                        <p id="file-name" class="helper-text">Files are OCR-processed and used as grounded sources.</p>
+                        <div id="document-list" class="document-list"></div>
+                    </section>
+
+                    <section class="panel profile-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">Class settings</p>
+                                <h2>Learner profile</h2>
+                            </div>
+                        </div>
+                        <form id="profile-form">
+                            <label for="learning-level">Default level</label>
+                            <select id="learning-level" name="level">
+                                <option value="beginner">Support</option><option value="intermediate" selected>Core</option><option value="advanced">Stretch</option>
+                            </select>
+                            <label for="learning-goal">Lesson goal</label>
+                            <select id="learning-goal" name="goal">
+                                <option value="understand">Build foundations</option><option value="practice" selected>Practice and assess</option><option value="master">Master difficult topics</option>
+                            </select>
+                            <button type="submit" class="secondary-btn">Save class profile</button><p id="profile-status" class="helper-text" role="status">Loading profile...</p>
+                        </form>
+                    </section>
+                </aside>
+
+                <section class="panel question-panel" id="lesson">
+                    <div class="panel-heading">
+                        <div>
+                                <p class="eyebrow">Content studio</p><h2>Differentiated lesson builder</h2>
+                        </div>
+                        <span class="ai-mark">AI + curriculum</span>
+                    </div>
+                    <div class="feature-callout"><div class="feature-icon">✦</div><div><strong>One lesson, three ways to teach it</strong><p>Use your uploaded curriculum to adapt objectives, activities, and practice for different learner needs.</p></div></div>
+                    <form id="lesson-form" class="lesson-form"><label for="lesson-upload">Original lesson image or PDF</label><label class="compact-upload" for="lesson-upload">Choose lesson file <input id="lesson-upload" type="file" accept="application/pdf,image/png,image/jpeg,image/webp"></label><button type="submit" id="lesson-btn">Generate three versions</button><p id="lesson-status" class="helper-text" role="status">Process a textbook first.</p></form>
+                    <div id="lesson-results" class="lesson-results" hidden></div>
+                    <div class="divider"><span>Quick ask from your curriculum</span></div>
+                    <form id="question-form">
+                        <label for="question">What do you want to clarify?</label><textarea id="question" name="question" rows="3" maxlength="1000" placeholder="Example: Explain this concept with a classroom-friendly example..." required></textarea>
+                        <div class="question-actions">
+                            <span id="question-status" class="helper-text" role="status">Add and process a textbook to begin.</span>
+                            <div class="action-buttons">
+                                <button type="submit">Ask AI</button><button id="quiz-btn" type="button" class="secondary-btn">Quick quiz</button>
+                            </div>
+                        </div>
+                    </form>
+                    <article id="answer-panel" class="answer-panel" aria-live="polite">
+                        <p class="eyebrow">Grounded answer</p><h3>No question yet</h3><p>AI will cite the relevant curriculum source in its response.</p>
+                    </article>
+                    <article id="quiz-panel" class="answer-panel quiz-panel" hidden>
+                        <p class="eyebrow">Practice set</p>
+                        <div id="quiz-content"></div>
+                    </article>
+                </section>
+            </div>
+            <section class="lower-grid" id="assessment"><section class="panel mini-panel"><p class="eyebrow">Assessment</p><h2>Recent diagnostic set</h2><p>No assessment yet. Generate a quiz from your curriculum to start tracking understanding.</p><button id="scroll-quiz" class="text-btn">Open quiz builder →</button></section><section class="panel mini-panel" id="progress"><p class="eyebrow">Learning gaps</p><h2>Student progress</h2><div class="empty-progress"><span>◎</span><p>Weak skills will appear after the first submitted assessment.</p></div></section></section>
+        </main>
+        <script type="module" src="js/home.js"></script>
+    </body>
+</html>
